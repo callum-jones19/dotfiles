@@ -1,0 +1,27 @@
+#!/bin/dash
+
+if [ "$#" != 1 ]
+then
+    echo "sscript: usage: sscript <file>"
+    exit 1
+fi
+
+if [ -e "$1" ]
+then
+    echo "sscript: error: file already exists"
+    exit 1
+fi
+
+basedir=$(dirname "$0")
+template_f="$basedir"/sscript_template.py
+if [ ! -e "$template_f" ]
+then
+    echo "sscript: cannot find template file"
+    exit 1
+fi
+
+cp "$template_f" ./"$1"
+chmod +x ./"$1"
+
+nvim "$1"
+

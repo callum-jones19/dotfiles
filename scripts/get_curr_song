@@ -1,0 +1,9 @@
+#! /bin/dash
+
+status=$(playerctl -i 'chromium.instance28847' status 2>&1)
+if [ "$status" = "Playing" ]
+then
+  echo " $(playerctl -i 'chromium.instance28847' metadata | grep title | sed -E 's/^.*title +(.+)$/\1/')"
+else
+  echo " Not Playing"
+fi
