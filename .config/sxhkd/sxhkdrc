@@ -8,19 +8,19 @@ super + Return
 
 # program launcher
 super + d
-	/home/callumjones/.config/rofi/scripts/launcher_t1
+  rofi -show drun
 
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
 super + shift + z
-	/home/callumjones/.config/rofi/powermenu/type-1/powermenu.sh
+	rofi -show drun
 
 # Screenshot
 
 Print
-	flameshot gui --trayicon false
+	flameshot gui
 
 # Browser
 
@@ -28,10 +28,7 @@ super + shift + m
 	firefox
 
 super + e
-  nemo
-
-super + shift + z
-  env X
+  nautilus
 
 # Keyboard Shortcuts
 
