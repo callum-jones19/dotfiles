@@ -1,0 +1,6 @@
+#! /bin/dash
+
+bspc rule -a firefox --one-shot desktop=\^3  && firefox 'https://app.clicktime.com/App/DayView/?'
+bspc rule -a 'Microsoft Teams - Preview'  --one-shot desktop=\^3 && teams
+firefox 'https://github.com/locationiqdata/StoreScrapers'
+bspc rule -a Alacritty --one-shot desktop=\^1 && alacritty

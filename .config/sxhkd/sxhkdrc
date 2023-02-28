@@ -15,7 +15,7 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 super + shift + z
-	rofi -show drun
+	env XSECURELOCK_SAVER=saver_mpv XSECURELOCK_SHOW_HOSTNAME=0 XSECURELOCK_SHOW_DATETIME=0 XSECURELOCK_FONT='JetBrains Mono' XSECURELOCK_VIDEOS_FLAGS="--loop --start=$(((1 + $RANDOM % 43735) / 24))" xsecurelock
 
 # Screenshot
 
@@ -28,7 +28,7 @@ super + shift + m
 	firefox
 
 super + e
-  nautilus
+  nemo
 
 # Keyboard Shortcuts
 

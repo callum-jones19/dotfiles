@@ -22,8 +22,8 @@ shutdown=' Shutdown'
 reboot=' Reboot'
 lock=' Lock'
 suspend=' Suspend'
-logout=' Logout'
-yes=' Yes'
+logout='﫼 Logout'
+yes='﫠 Yes'
 no=' No'
 
 # Rofi CMD
@@ -95,7 +95,7 @@ case ${chosen} in
 		run_cmd --reboot
         ;;
     $lock)
-    xsecurelock
+    env XSECURELOCK_SAVER=saver_mpv XSECURELOCK_SHOW_HOSTNAME=0 XSECURELOCK_SHOW_DATETIME=0 XSECURELOCK_FONT='JetBrains Mono' XSECURELOCK_VIDEOS_FLAGS='--loop' xsecurelock
         ;;
     $suspend)
 		run_cmd --suspend

@@ -7,9 +7,9 @@
  **/
 
 * {
-    background:     #1E1D2FFF;
-    background-alt: #282839FF;
-    foreground:     #D9E0EEFF;
+    background:     #1E1D2Faa;
+    background-alt: #282839aa;
+    foreground:     #D9E0EEaa;
     selected:       #f5e0dc;
     active:         #a6e3a1;
     urgent:         #f38ba8;
