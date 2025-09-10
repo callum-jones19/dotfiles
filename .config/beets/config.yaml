@@ -1,0 +1,10 @@
+plugins: scrub edit embedart missing info fetchart
+directory: /mnt/c/Users/Callum/Music/data
+import:
+  move: yes
+  language: en
+  from_scratch: yes
+embedart:
+  auto: no
+fetchart:
+  sources: filesystem coverart itunes amazon albumart
