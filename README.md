@@ -13,4 +13,5 @@ Dotfiles are currently being tracked for:
 - Bash
 - [Helix](https://github.com/helix-editor/helix)
 - [Starship](https://github.com/starship/starship)
+- [Alacritty](https://github.com/alacritty/alacritty)
 

@@ -1,0 +1,6 @@
+general.import = [
+  "./catppuccin-frappe.toml"
+]
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
