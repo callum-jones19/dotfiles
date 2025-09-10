@@ -1,8 +1,6 @@
-general.import = ["./catppuccin-frappe.toml"]
-
-[window]
-opacity = 0.7
-blur = true
+general.import = [
+  "./catppuccin-frappe.toml"
+]
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font Mono", style = "Regular" }
