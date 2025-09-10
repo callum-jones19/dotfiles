@@ -1,0 +1,23 @@
+theme = "catppuccin_frappe"
+
+[editor]
+# auto-pairs = false
+mouse = false
+line-number = "relative"
+# cursorline = true
+completion-timeout = 5
+color-modes = true
+
+[editor.lsp]
+display-inlay-hints = true
+display-progress-messages = true
+
+[editor.cursor-shape]
+insert = "bar"
+select = "underline"
+
+[editor.inline-diagnostics]
+cursor-line = "info"
+
+[keys.insert]
+"C-e" = "@<esc>hv<S-F><lt>\"zy\"zpi<esc>;a/<esc>i"

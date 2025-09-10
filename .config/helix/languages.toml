@@ -1,0 +1,73 @@
+# ############################################
+#
+# Language Server configs
+#
+# ############################################
+
+[language-server.pyright.config.python.analysis]
+typeCheckingMode = "basic"
+
+[language-server.ruff.config.settings]
+args = ["--ignore", "E501"]
+
+# [language-server.typescript-language-server]
+# # Larger timeout to account for much larger monorepos
+# timeout = 120
+[language-server.typescript-language-server]
+command = "typescript-language-server"
+timeout = 120
+args = ["--stdio"]
+config.hostInfo = "helix"
+
+[language-server.vtsls]
+command = "vtsls"
+args = ["--stdio"]
+
+# ############################################
+#
+# Language configurations
+#
+# ############################################
+
+[[language]]
+name = "python"
+language-servers = ["pyright"]
+
+[[language]]
+name = "html"
+language-servers = ["vscode-html-language-server", "tailwindcss-ls"]
+
+[[language]]
+name = "css"
+language-servers = ["vscode-css-language-server", "tailwindcss-ls"]
+
+[[language]]
+name = "javascript"
+language-servers = [
+  "vscode-eslint-language-server",
+  "vtsls",
+]
+
+[[language]]
+name = "jsx"
+language-servers = [
+  "vtsls",
+  "vscode-eslint-language-server",
+  "tailwindcss-ls",
+]
+
+[[language]]
+name = "typescript"
+language-servers = [
+  "vtsls",
+  "vscode-eslint-language-server",
+]
+
+[[language]]
+name = "tsx"
+language-servers = [
+  "vtsls",
+  "tailwindcss-ls",
+  "vscode-eslint-language-server",
+]
+
