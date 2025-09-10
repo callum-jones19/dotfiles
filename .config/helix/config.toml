@@ -1,4 +1,4 @@
-theme = "catppuccin_frappe"
+theme = "base16_transparent"
 
 [editor]
 # auto-pairs = false
@@ -20,4 +20,10 @@ select = "underline"
 cursor-line = "info"
 
 [keys.insert]
+# HTML/JSX/TSX/XML: Automatically close the pair that is opened immediately
+# before the cursor.
+# E.G: `<p>|`
+#          ^ Cursor is here, macro will execute to become
+#      `<p>|</p>`
+#          ^ Cursor ends here
 "C-e" = "@<esc>hv<S-F><lt>\"zy\"zpi<esc>;a/<esc>i"
