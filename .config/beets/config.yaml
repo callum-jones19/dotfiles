@@ -7,4 +7,5 @@ import:
 embedart:
   auto: no
 fetchart:
+  auto: no
   sources: filesystem coverart itunes amazon albumart
