@@ -71,3 +71,6 @@ language-servers = [
   "vscode-eslint-language-server",
 ]
 
+[[language]]
+name = "markdown"
+soft-wrap.enable = true
