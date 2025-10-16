@@ -1,5 +1,5 @@
-plugins: scrub edit embedart missing info fetchart
-directory: /mnt/c/Users/Callum/Music/data
+plugins: musicbrainz scrub edit embedart missing info fetchart convert
+directory: /home/callumjones/Music
 import:
   move: yes
   language: en
@@ -8,3 +8,9 @@ embedart:
   auto: no
 fetchart:
   sources: filesystem coverart itunes amazon albumart
+convert:
+  format: opus
+  formats:
+    opus: ffmpeg -i $source -y -vn -acodec libopus -ab 128k $dest
+  embed: no
+  copy_album_art: yes

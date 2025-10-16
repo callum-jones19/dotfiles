@@ -3,6 +3,7 @@ theme = "catppuccin_frappe"
 [editor]
 # auto-pairs = false
 mouse = false
+auto-completion = false
 line-number = "relative"
 # cursorline = true
 completion-timeout = 5
