@@ -1,5 +1,5 @@
 -- Default colorscheme
-vim.cmd("colorscheme gruvbox")
+vim.cmd("colorscheme catppuccin-mocha")
 
 -- Setup base options
 
@@ -9,6 +9,24 @@ vim.opt.wrap = false
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
 vim.opt.mouse = ""
+vim.opt.signcolumn = yes
+vim.opt.expandtab = yes
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.winborder = 'rounded'
+
+-- set up stuff when the LSP client attaches
+vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('lsp', {}),
+    callback = function(args)
+        local clientID = args.data.client_id
+
+        -- enable autocomplete
+        vim.lsp.completion.enable(true, clientID, 0, { autotrigger = true })
+		vim.lsp.inlay_hint.enable(true)
+    end,
+})
+
 
 -- Completion stuff
 vim.opt.completeopt = { "menuone", "noselect", "popup" }
@@ -27,33 +45,12 @@ vim.diagnostic.config({
   }
 })
 
--- LSP ConfiG
--- Handled by nvim-lspconfig package
-vim.lsp.config('vtsls', {
-  settings = { autotrigger = true }
-})
-
-vim.lsp.config('typescript', {
-  settings = { autotrigger = true }
-})
-
--- Enalbe LSPs
+-- Enable LSPs
 vim.lsp.enable('rust_analyzer')
 vim.lsp.enable('vtsls')
 vim.lsp.enable('vscode-esint-language-server')
 vim.lsp.enable('marksman')
 vim.lsp.enable('lua_ls')
-
--- set up stuff when the LSP client attaches
-vim.api.nvim_create_autocmd('LspAttach', {
-    group = vim.api.nvim_create_augroup('lsp', {}),
-    callback = function(args)
-        local clientID = args.data.client_id
-
-        -- enable autocomplete
-        vim.lsp.completion.enable(true, clientID, 0, { autotrigger = true })
-    end,
-})
 
 -- open autocomplete menu when pressing <C-n>
 vim.keymap.set('i', '<C-space>', function()
