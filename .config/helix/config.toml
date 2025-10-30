@@ -1,4 +1,4 @@
-theme = "catppuccin_frappe"
+theme = "catppuccin_mocha"
 
 [editor]
 # auto-pairs = false
@@ -11,6 +11,7 @@ color-modes = true
 true-color = true
 undercurl = true
 rulers = [80]
+popup-border = "all"
 
 [editor.lsp]
 display-inlay-hints = true
