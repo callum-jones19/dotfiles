@@ -6,6 +6,7 @@ if [[ -d /home/linuxbrew ]]; then
   export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
 fi
 
+export PATH="$PATH:$HOME/scripts"
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PATH"
 
 export EDITOR="hx"
