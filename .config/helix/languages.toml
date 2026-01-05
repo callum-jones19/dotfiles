@@ -4,15 +4,6 @@
 #
 # ############################################
 
-[language-server.pyright.config.python.analysis]
-typeCheckingMode = "basic"
-
-[language-server.ruff.config.settings]
-args = ["--ignore", "E501"]
-
-# [language-server.typescript-language-server]
-# # Larger timeout to account for much larger monorepos
-# timeout = 120
 [language-server.typescript-language-server]
 command = "typescript-language-server"
 timeout = 120
@@ -29,9 +20,18 @@ args = ["--stdio"]
 #
 # ############################################
 
+# Configure Pythono with PyLSP as the default LSP (installed globally),
+# attempt to use ruff for linting and formattin (installed @ project level),
+# attempt to use pyright for type checking (installed @ project level).
 [[language]]
 name = "python"
-language-servers = ["pyright"]
+language-servers = [  "ruff", "pyright" ]
+auto-format = true
+rulers = [88]
+
+[language.formatter]
+command = "ruff"
+args = ["format", "-"]
 
 [[language]]
 name = "html"

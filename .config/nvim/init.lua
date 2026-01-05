@@ -51,8 +51,18 @@ vim.lsp.enable('vtsls')
 vim.lsp.enable('vscode-esint-language-server')
 vim.lsp.enable('marksman')
 vim.lsp.enable('lua_ls')
+vim.lsp.enable('ruff')
+vim.lsp.enable('pyright')
 
 -- open autocomplete menu when pressing <C-n>
 vim.keymap.set('i', '<C-space>', function()
     vim.lsp.completion.get()
 end)
+
+-- Plugin config
+require("which-key").setup({
+	preset = "helix",
+    delay = function(ctx)
+		return 0
+	end,
+})
