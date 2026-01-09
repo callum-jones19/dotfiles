@@ -18,3 +18,10 @@ unset rc
 # Package manager sources
 [[ -d $HOME/.cargo ]] && . "$HOME/.cargo/env"
 
+
+# fnm
+FNM_PATH="/home/callumjones/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$FNM_PATH:$PATH"
+  eval "`fnm env`"
+fi

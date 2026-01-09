@@ -1,16 +1,19 @@
-theme = "catppuccin_frappe"
+theme = "adwaita-dark"
 
 [editor]
-# auto-pairs = false
+auto-pairs = false
 mouse = false
-auto-completion = false
+auto-completion = true
 line-number = "relative"
-# cursorline = true
 completion-timeout = 5
 color-modes = true
 true-color = true
 undercurl = true
 rulers = [80]
+popup-border = "all"
+rainbow-brackets = true
+end-of-line-diagnostics = "disable"
+shell = ["bash", "-c"]
 
 [editor.lsp]
 display-inlay-hints = true
@@ -21,7 +24,7 @@ insert = "bar"
 select = "underline"
 
 [editor.inline-diagnostics]
-cursor-line = "info"
+cursor-line = "hint"
 
 [keys.insert]
 "C-e" = "@<esc>hv<S-F><lt>\"zy\"zpi<esc>;a/<esc>i"

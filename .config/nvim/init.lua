@@ -1,5 +1,8 @@
 -- Default colorscheme
-vim.cmd("colorscheme catppuccin-mocha")
+vim.cmd("colorscheme kanagawa")
+
+-- Disable lexical syntax highlighting, only use TreeSitter
+vim.cmd("syntax off")
 
 -- Setup base options
 
@@ -15,18 +18,13 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.winborder = 'rounded'
 
--- set up stuff when the LSP client attaches
-vim.api.nvim_create_autocmd('LspAttach', {
-    group = vim.api.nvim_create_augroup('lsp', {}),
+-- Connect TreeSitter for relevant langauges
+vim.api.nvim_create_autocmd( 'FileType', {
+    pattern = { "python", "typescript*", "javascript*", "rust", "markdown", "json", "css", "scss" },
     callback = function(args)
-        local clientID = args.data.client_id
-
-        -- enable autocomplete
-        vim.lsp.completion.enable(true, clientID, 0, { autotrigger = true })
-		vim.lsp.inlay_hint.enable(true)
-    end,
+        vim.treesitter.start()
+    end
 })
-
 
 -- Completion stuff
 vim.opt.completeopt = { "menuone", "noselect", "popup" }
@@ -48,11 +46,38 @@ vim.diagnostic.config({
 -- Enable LSPs
 vim.lsp.enable('rust_analyzer')
 vim.lsp.enable('vtsls')
-vim.lsp.enable('vscode-esint-language-server')
+vim.lsp.enable('eslint')
 vim.lsp.enable('marksman')
 vim.lsp.enable('lua_ls')
+vim.lsp.enable('ruff')
+vim.lsp.enable('pyright')
+vim.lsp.enable('tailwindcss')
 
--- open autocomplete menu when pressing <C-n>
-vim.keymap.set('i', '<C-space>', function()
-    vim.lsp.completion.get()
-end)
+--
+-- Plugin config
+--
+
+-- Treesitter setup for better language syntax-highlighting
+-- and textobject-based motions
+require("nvim-treesitter").setup()
+require("nvim-treesitter").install { "rust", "typescript", "tsx", "javascript", "jsx", "css", "scss", "python", "json", "markdown", "toml" }
+
+-- Display keybind combos in a popup for QOL purposes
+require("which-key").setup({
+	preset = "helix",
+    delay = function(ctx)
+		return 0
+	end,
+})
+
+-- Enable auto JSX/TSX tag management
+require('nvim-ts-autotag').setup({})
+
+-- QOL for seeing LSP server startup and status
+require("fidget").setup {}
+
+-- Automatically match brackets, quotes, etc.
+require("nvim-autopairs").setup()
+
+-- Setup dedicated autocompletion plugin
+require("blink.cmp").setup()
