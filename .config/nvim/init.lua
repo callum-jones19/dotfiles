@@ -17,10 +17,20 @@ vim.opt.expandtab = yes
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.winborder = 'rounded'
+vim.opt.clipboard = "unnamedplus"
 
 -- Connect TreeSitter for relevant langauges
 vim.api.nvim_create_autocmd( 'FileType', {
-    pattern = { "python", "typescript*", "javascript*", "rust", "markdown", "json", "css", "scss" },
+    pattern = {
+		"python",
+		"typescript*",
+		"javascript*",
+		"rust",
+		"markdown",
+		"json",
+		"css",
+		"scss"
+	},
     callback = function(args)
         vim.treesitter.start()
     end
@@ -52,6 +62,7 @@ vim.lsp.enable('lua_ls')
 vim.lsp.enable('ruff')
 vim.lsp.enable('pyright')
 vim.lsp.enable('tailwindcss')
+vim.lsp.enable('bash')
 
 --
 -- Plugin config
@@ -60,7 +71,7 @@ vim.lsp.enable('tailwindcss')
 -- Treesitter setup for better language syntax-highlighting
 -- and textobject-based motions
 require("nvim-treesitter").setup()
-require("nvim-treesitter").install { "rust", "typescript", "tsx", "javascript", "jsx", "css", "scss", "python", "json", "markdown", "toml" }
+require("nvim-treesitter").install { "rust", "typescript", "tsx", "javascript", "jsx", "css", "scss", "python", "json", "markdown", "toml", "bash" }
 
 -- Display keybind combos in a popup for QOL purposes
 require("which-key").setup({
