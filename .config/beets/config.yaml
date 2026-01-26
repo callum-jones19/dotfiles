@@ -1,5 +1,5 @@
 plugins: musicbrainz scrub edit embedart missing info fetchart convert
-directory: /home/callumjones/Music
+directory: /mnt/c/Users/Callum/Music/data
 import:
   move: yes
   language: en
@@ -10,8 +10,12 @@ fetchart:
   auto: no
   sources: filesystem coverart itunes amazon albumart
 convert:
-  format: opus
+  format: aac
   formats:
-    opus: ffmpeg -i $source -y -vn -acodec libopus -ab 128k $dest
-  embed: no
+    aac:
+      command: ffmpeg -i $source -y -c:a libfdk_aac -b:a 256k $dest
+      extension: m4a
+  embed: yes
   copy_album_art: yes
+  never_convert_lossy_files: yes
+

@@ -25,3 +25,5 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="$FNM_PATH:$PATH"
   eval "`fnm env`"
 fi
+
+[ -f "/home/callum/.ghcup/env" ] && . "/home/callum/.ghcup/env" # ghcup-env

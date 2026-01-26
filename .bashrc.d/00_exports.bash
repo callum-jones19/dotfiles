@@ -3,7 +3,7 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
     PATH="$PATH:$HOME/.local/bin:$HOME/bin"
 fi
 if [[ -d /home/linuxbrew ]]; then
-  export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
+  export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin"
 fi
 
 export PATH="$PATH:$HOME/scripts"
