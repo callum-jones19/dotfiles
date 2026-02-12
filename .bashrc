@@ -27,3 +27,5 @@ if [ -d "$FNM_PATH" ]; then
 fi
 
 [ -f "/home/callum/.ghcup/env" ] && . "/home/callum/.ghcup/env" # ghcup-env
+
+. "$HOME/.local/share/../bin/env"

@@ -36,6 +36,18 @@ vim.api.nvim_create_autocmd( 'FileType', {
     end
 })
 
+-- Change default indent lengths for certain languages
+vim.api.nvim_create_autocmd('FileType', {
+	pattern = {
+		"typescript*",
+		"javascript*"
+	},
+	callback = function(args)
+		vim.opt.shiftwidth = 2
+		vim.opt.tabstop = 2
+	end
+})
+
 -- Completion stuff
 vim.opt.completeopt = { "menuone", "noselect", "popup" }
 
@@ -62,7 +74,6 @@ vim.lsp.enable('lua_ls')
 vim.lsp.enable('ruff')
 vim.lsp.enable('pyright')
 vim.lsp.enable('tailwindcss')
-vim.lsp.enable('bash')
 
 --
 -- Plugin config

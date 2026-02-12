@@ -11,3 +11,4 @@ else
     alias la="ls -la"
 fi
 alias gst="git status"
+alias beet="uvx --from beets beet"
