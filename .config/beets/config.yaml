@@ -1,5 +1,5 @@
-plugins: musicbrainz edit scrub embedart missing info fetchart convert
-directory: /home/callum/Music/
+plugins: musicbrainz edit scrub embedart missing info fetchart convert lyrics lastgenre
+directory: /home/callumjones/Music/
 import:
   move: yes
   language: en
@@ -17,4 +17,8 @@ convert:
   embed: yes
   copy_album_art: yes
   never_convert_lossy_files: yes
-
+lyrics:
+  auto: no
+  synced: yes
+lastgenre:
+  auto: no
