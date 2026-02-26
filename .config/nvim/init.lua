@@ -29,7 +29,9 @@ vim.api.nvim_create_autocmd( 'FileType', {
 		"markdown",
 		"json",
 		"css",
-		"scss"
+		"scss",
+		"gitcommit",
+		"sh",
 	},
     callback = function(args)
         vim.treesitter.start()
@@ -82,7 +84,7 @@ vim.lsp.enable('tailwindcss')
 -- Treesitter setup for better language syntax-highlighting
 -- and textobject-based motions
 require("nvim-treesitter").setup()
-require("nvim-treesitter").install { "rust", "typescript", "tsx", "javascript", "jsx", "css", "scss", "python", "json", "markdown", "toml", "bash" }
+require("nvim-treesitter").install { "rust", "typescript", "tsx", "javascript", "jsx", "css", "scss", "python", "json", "markdown", "toml", "sh", "gitcommit" }
 
 -- Display keybind combos in a popup for QOL purposes
 require("which-key").setup({
