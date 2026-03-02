@@ -1,5 +1,5 @@
 -- Default colorscheme
-vim.cmd("colorscheme catppuccin-latte")
+vim.cmd("colorscheme kanagawa-wave")
 
 -- Disable lexical syntax highlighting, only use TreeSitter
 vim.cmd("syntax off")
