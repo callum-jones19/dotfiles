@@ -28,4 +28,4 @@ fi
 
 [ -f "/home/callum/.ghcup/env" ] && . "/home/callum/.ghcup/env" # ghcup-env
 
-. "$HOME/.local/share/../bin/env"
+[ -f  "$HOME/.local/share/../bin/env" ] && . "$HOME/.local/share/../bin/env"
