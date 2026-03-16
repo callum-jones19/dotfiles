@@ -1,5 +1,5 @@
 -- Default colorscheme
-vim.cmd("colorscheme kanagawa")
+vim.cmd("colorscheme kanagawa-wave")
 
 -- Disable lexical syntax highlighting, only use TreeSitter
 vim.cmd("syntax off")
@@ -32,6 +32,7 @@ vim.api.nvim_create_autocmd( 'FileType', {
 		"scss",
 		"gitcommit",
 		"sh",
+		"toml",
 	},
     callback = function(args)
         vim.treesitter.start()
@@ -76,6 +77,7 @@ vim.lsp.enable('lua_ls')
 vim.lsp.enable('ruff')
 vim.lsp.enable('pyright')
 vim.lsp.enable('tailwindcss')
+vim.lsp.enable('taplo')
 
 --
 -- Plugin config
@@ -84,7 +86,7 @@ vim.lsp.enable('tailwindcss')
 -- Treesitter setup for better language syntax-highlighting
 -- and textobject-based motions
 require("nvim-treesitter").setup()
-require("nvim-treesitter").install { "rust", "typescript", "tsx", "javascript", "jsx", "css", "scss", "python", "json", "markdown", "toml", "sh", "gitcommit" }
+require("nvim-treesitter").install { "rust", "typescript", "tsx", "javascript", "jsx", "css", "scss", "python", "json", "markdown", "toml", "bash", "gitcommit", "toml" }
 
 -- Display keybind combos in a popup for QOL purposes
 require("which-key").setup({
