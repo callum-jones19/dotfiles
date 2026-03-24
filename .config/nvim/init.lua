@@ -33,6 +33,7 @@ vim.api.nvim_create_autocmd( 'FileType', {
 		"gitcommit",
 		"sh",
 		"toml",
+		"typst",
 	},
     callback = function(args)
         vim.treesitter.start()
@@ -78,6 +79,7 @@ vim.lsp.enable('ruff')
 vim.lsp.enable('pyright')
 vim.lsp.enable('tailwindcss')
 vim.lsp.enable('taplo')
+vim.lsp.enable('tinymist')
 
 --
 -- Plugin config
@@ -86,7 +88,7 @@ vim.lsp.enable('taplo')
 -- Treesitter setup for better language syntax-highlighting
 -- and textobject-based motions
 require("nvim-treesitter").setup()
-require("nvim-treesitter").install { "rust", "typescript", "tsx", "javascript", "jsx", "css", "scss", "python", "json", "markdown", "toml", "bash", "gitcommit", "toml" }
+require("nvim-treesitter").install { "rust", "typescript", "tsx", "javascript", "jsx", "css", "scss", "python", "json", "markdown", "toml", "bash", "gitcommit", "toml", "typst" }
 
 -- Display keybind combos in a popup for QOL purposes
 require("which-key").setup({
