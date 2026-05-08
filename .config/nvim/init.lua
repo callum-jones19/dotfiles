@@ -12,8 +12,8 @@ vim.opt.wrap = false
 vim.opt.incsearch = true
 vim.opt.termguicolors = true
 vim.opt.mouse = ""
-vim.opt.signcolumn = yes
-vim.opt.expandtab = yes
+vim.opt.signcolumn = "yes"
+vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.winborder = 'rounded'
@@ -55,7 +55,11 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- Completion stuff
-vim.opt.completeopt = { "menuone", "noselect", "popup" }
+vim.opt.completeopt = {
+	"menuone",
+	"noselect",
+	"popup"
+}
 
 vim.diagnostic.config({
   signs = {
@@ -85,6 +89,16 @@ vim.lsp.enable('tinymist')
 vim.lsp.enable('html')
 vim.lsp.enable('cssls')
 
+vim.lsp.config("lua_ls", {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { "vim" }
+			}
+		}
+	}
+})
+
 --
 -- Plugin config
 --
@@ -92,7 +106,25 @@ vim.lsp.enable('cssls')
 -- Treesitter setup for better language syntax-highlighting
 -- and textobject-based motions
 require("nvim-treesitter").setup()
-require("nvim-treesitter").install { "rust", "typescript", "tsx", "javascript", "jsx", "css", "scss", "python", "json", "markdown", "toml", "bash", "gitcommit", "toml", "typst", "html", "jsonc" }
+require("nvim-treesitter").install {
+	"rust",
+	"typescript",
+	"tsx",
+	"javascript",
+	"jsx",
+	"css",
+	"scss",
+	"python",
+	"json",
+	"markdown",
+	"toml",
+	"bash",
+	"gitcommit",
+	"toml",
+	"typst",
+	"html",
+	"jsonc"
+}
 
 -- Display keybind combos in a popup for QOL purposes
 require("which-key").setup({
@@ -114,4 +146,5 @@ require("nvim-autopairs").setup()
 -- Setup dedicated autocompletion plugin
 require("blink.cmp").setup()
 
+-- Bracket coloriser
 require("colorizer").setup()
