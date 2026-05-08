@@ -34,6 +34,7 @@ vim.api.nvim_create_autocmd( 'FileType', {
 		"sh",
 		"toml",
 		"typst",
+		"html"
 	},
     callback = function(args)
         vim.treesitter.start()
@@ -44,7 +45,8 @@ vim.api.nvim_create_autocmd( 'FileType', {
 vim.api.nvim_create_autocmd('FileType', {
 	pattern = {
 		"typescript*",
-		"javascript*"
+		"javascript*",
+		"html"
 	},
 	callback = function(args)
 		vim.opt.shiftwidth = 2
@@ -80,6 +82,8 @@ vim.lsp.enable('pyright')
 vim.lsp.enable('tailwindcss')
 vim.lsp.enable('taplo')
 vim.lsp.enable('tinymist')
+vim.lsp.enable('html')
+vim.lsp.enable('cssls')
 
 --
 -- Plugin config
@@ -88,7 +92,7 @@ vim.lsp.enable('tinymist')
 -- Treesitter setup for better language syntax-highlighting
 -- and textobject-based motions
 require("nvim-treesitter").setup()
-require("nvim-treesitter").install { "rust", "typescript", "tsx", "javascript", "jsx", "css", "scss", "python", "json", "markdown", "toml", "bash", "gitcommit", "toml", "typst" }
+require("nvim-treesitter").install { "rust", "typescript", "tsx", "javascript", "jsx", "css", "scss", "python", "json", "markdown", "toml", "bash", "gitcommit", "toml", "typst", "html", "jsonc" }
 
 -- Display keybind combos in a popup for QOL purposes
 require("which-key").setup({
@@ -109,3 +113,5 @@ require("nvim-autopairs").setup()
 
 -- Setup dedicated autocompletion plugin
 require("blink.cmp").setup()
+
+require("colorizer").setup()
